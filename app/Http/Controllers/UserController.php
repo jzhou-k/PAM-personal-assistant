@@ -16,9 +16,6 @@ class UserController extends Controller
     public function index()
     {
         
-        DB::table('testUser')
-            ->where('id', 1)
-            ->update(['led' => 0]);
         $users = DB::select('select * from testUser WHERE id = ?', [1]);
         //the view blade file uses the $users
         //view() function is designed to accept an associative array, where each key in the array corresponds to a variable name that you want to make available in the view.
@@ -26,21 +23,29 @@ class UserController extends Controller
         return Inertia::render('Database', ['user' => $users]);
     }
 
+    //this function is called whenever there is a http post request , refer to map php 
     public function toggleLedPhp(Request $request)
     {
         
         
         $input = $request->all();
         echo $input['led']; 
+        echo $request; 
  
         $ledToggle = $input['led']; 
  
         DB::table('testUser')
             ->where('id', 1)
-            ->update(['led' => 25]);
+            ->update(['led' => $ledToggle]);
  
         $users = DB::select('select * from testUser WHERE id = ?', [1]);
  
         return ['user'=>$users, 'input'=> $input];
+    }
+
+
+    public function getUserData() 
+    {
+        return "haha"; 
     }
 }

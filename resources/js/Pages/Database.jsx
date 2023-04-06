@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import "/home/julia/pam/resources/css/led.css";
 export default function Database({ user }) {
-    console.log("wtf");
+    console.log("wtf huh");
     // console.log(user[0].id);
 
-
-    const [isLed, setisLed] = useState(0);
+    console.log(user[0].led);
+    const [isLed, setisLed] = useState(user[0].led);
 
     const toggleLed = async () => {
         console.log("???");
@@ -34,6 +34,7 @@ export default function Database({ user }) {
             })
             .then(response => {
                 console.log(response.data);
+                setisLed(response.data.input[0].led);
             })
             .catch(function (error) {
                 console.error(error);
