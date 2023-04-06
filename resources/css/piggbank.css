@@ -1,0 +1,60 @@
+body {
+    font: 100% Helvetica, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ECE6C2;
+    color: #D2A24C;
+  }
+  
+  p {
+    color: #D2A24C;
+  }
+  
+  .main {
+    width: 80vw;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    padding: 5px;
+    transform: translate(-50%, 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ECE6C2;
+    flex-direction: column;
+  }
+  .main .title {
+    font-size: 5em;
+    font-weight: 800;
+    color: #ae4a19;
+  }
+  
+  .display {
+    background-color: #ECE6C2;
+    outline: 3.5px solid #E5A632;
+    border-radius: 10px; /* for example */
+    padding: 5px;
+  }
+  .display .bar {
+    width: 50vw;
+    height: 30px;
+    background-color: rgba(234, 169, 49, 0.5843137255);
+  }
+  .display .bar .progress {
+    width: 50%;
+    height: 100%;
+    background-color: #CC6B49;
+  }
+  
+  .input {
+    display: flex;
+    flex-direction: column;
+  }
+  .input label {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  input[type=button] {
+    background-color: #73BDA8;
+  }/*# sourceMappingURL=piggyStyle.css.map */

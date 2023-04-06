@@ -1,0 +1,39 @@
+body 
+{
+
+    font: 100% Helvetica, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ECE6C2;
+    color: #D2A24C;
+}
+
+h1{
+    font-size: 5em;
+    font-weight: 900;
+}
+
+.ledContainer
+{
+    width: 80vw;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    padding: 5px;
+    transform: translate(-50%, 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ECE6C2;
+    flex-direction: column;
+}
+  .input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  input[type=button] {
+    background-color: #73BDA8;
+    padding: 20px; 
+    color: black;
+  }
