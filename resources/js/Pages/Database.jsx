@@ -4,34 +4,41 @@ import "/home/julia/pam/resources/css/led.css";
 export default function Database({ user }) {
     console.log("wtf huh");
     // console.log(user[0].id);
-
+    //dumbass react
     console.log(user[0].led);
     const [isLed, setisLed] = useState(0);
-    var setLed = 0;
+
+    if(isLed ==1)
+    {
+        console.log("if its one i set to 0");
+        var nextLed = 0;
+    }else
+    {
+        var nextLed = 1; 
+    }
 
     const toggleLed = async () => {
         console.log("button pressed");
-
+        
         axios
             .post('/databasefuck', {
                 // Data to be sent to the server
                 id: '1',
-                led: setLed,
+                led: nextLed,
             })
             .then(response => {
-                console.log("Set led" + setLed);
-                setLed = response.data.user[0].led;
-                if(setLed == 0)
-                {   
-                    console.log("set led to 1");
-                    setLed = 1;
-                    setisLed(setLed);
-                }else 
-                {
-                    console.log("set led to 0");
-                    setLed = 0;
-                    setisLed(setLed);
-                }
+                console.log(response);
+                setisLed(nextLed);
+                console.log("current user data" + nextLed);
+                
+                // if(nextLed ==1)
+                // {
+                //     console.log("if its one i set to 0");
+                //     nextLed = 0;
+                // }else
+                // {
+                //     nextLed = 1; 
+                // }
                 
             })
             .catch(function (error) {
@@ -48,6 +55,7 @@ export default function Database({ user }) {
         axios
             .get("/getUserData")
             .then(response => {
+                console.log("get user data" + response.data.user[0].led)
                 setisLed(response.data.user[0].led)
             })
             .catch(function (error) {
@@ -55,15 +63,13 @@ export default function Database({ user }) {
             });
     }
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+          getUserData();
+        }, 2000); // call getUserData every 5 seconds
 
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //       getUserData();
-    //     }, 1000); // call getUserData every 5 seconds
-
-    //     return () => clearInterval(interval);
-    //   }, []);
+        return () => clearInterval(interval);
+      }, []); //just add variable that refreshes, so it calls this function
 
     return (
         <>
