@@ -24,5 +24,4 @@ Route::get('/', function () {
 
 Route::get('/database',[UserController::class,'index']);
 Route::post('/databasefuck',[UserController::class,'toggleLedPhp']);
-
-
+Route::get('/getUserData',[UserController::class,'getUserData']);

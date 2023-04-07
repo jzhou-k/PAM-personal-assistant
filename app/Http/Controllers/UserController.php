@@ -26,12 +26,7 @@ class UserController extends Controller
     //this function is called whenever there is a http post request , refer to map php 
     public function toggleLedPhp(Request $request)
     {
-        
-        
         $input = $request->all();
-        echo $input['led']; 
-        echo $request; 
- 
         $ledToggle = $input['led']; 
  
         DB::table('testUser')
@@ -46,6 +41,7 @@ class UserController extends Controller
 
     public function getUserData() 
     {
-        return "haha"; 
+        $users = DB::select('select * from testUser WHERE id = ?', [1]);
+        return ['user'=>$users]; 
     }
 }

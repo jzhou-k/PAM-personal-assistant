@@ -6,35 +6,33 @@ export default function Database({ user }) {
     // console.log(user[0].id);
 
     console.log(user[0].led);
-    const [isLed, setisLed] = useState(user[0].led);
+    const [isLed, setisLed] = useState(0);
+    var setLed = 0;
 
     const toggleLed = async () => {
-        console.log("???");
-        // try {
-        // 	const res = await axios.get(`/databasefuck`, {
-
-        // 	});
-        // 	// Set the response to the state.
-        // 	console.log(res.data.user[0].led);
-        //     setisLed(res.data.user[0].led);
-        // } catch (err) {
-        // 	console.log(err);
-        // }
-        if (isLed == 0) {
-            setisLed(1);
-        } else {
-            setisLed(0);
-        }
+        console.log("button pressed");
 
         axios
             .post('/databasefuck', {
                 // Data to be sent to the server
                 id: '1',
-                led: isLed,
+                led: setLed,
             })
             .then(response => {
-                console.log(response.data);
-                setisLed(response.data.input[0].led);
+                console.log("Set led" + setLed);
+                setLed = response.data.user[0].led;
+                if(setLed == 0)
+                {   
+                    console.log("set led to 1");
+                    setLed = 1;
+                    setisLed(setLed);
+                }else 
+                {
+                    console.log("set led to 0");
+                    setLed = 0;
+                    setisLed(setLed);
+                }
+                
             })
             .catch(function (error) {
                 console.error(error);
@@ -46,14 +44,35 @@ export default function Database({ user }) {
 
     }
 
+    const getUserData = async () => {
+        axios
+            .get("/getUserData")
+            .then(response => {
+                setisLed(response.data.user[0].led)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       getUserData();
+    //     }, 1000); // call getUserData every 5 seconds
+
+    //     return () => clearInterval(interval);
+    //   }, []);
+
     return (
         <>
             {/* <div className="h-screen w-screen bg-gray-200 z-10 absolute"></div> */}
             {/* <h1 className='bg-gray-200 h-10 z-20 fixed'>LED {isLed}</h1> */}
             {/* <input className='fixed z-20 bg-gray-200 top-10' type="button" value="Toggle Led" onClick={() => toggleLed()}></input> */}
-            <div class = "ledContainer">
-            <h1>LED {isLed}</h1>
-            <input type="button" value="Toggle Led" onClick={() => toggleLed()}></input>
+            <div class="ledContainer">
+                <h1>LED {isLed}</h1>
+                <input type="button" value="Toggle Led" onClick={() => toggleLed()}></input>
             </div>
         </>
 
