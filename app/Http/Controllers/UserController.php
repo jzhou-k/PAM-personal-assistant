@@ -30,7 +30,7 @@ class UserController extends Controller
         $ledToggle = $input['led']; 
  
         DB::table('testUser')
-            ->where('id', 1)
+            ->where('id', $input['id'])
             ->update(['led' => $ledToggle]);
  
         $users = DB::select('select * from testUser WHERE id = ?', [1]);
