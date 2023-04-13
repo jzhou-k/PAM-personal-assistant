@@ -18,21 +18,21 @@ export default function Test()
     setAddAmount(amount)
   }
 
-  
-  useEffect(()=>{
-    const savedGoalAmount = localStorage.getItem('dataKey');
-    const savedSavedAmount = localStorage.getItem('save');
-    if (savedGoalAmount) {
+  //for storing data kinda like cookie, but im using a database so no need 
+  // useEffect(()=>{
+  //   const savedGoalAmount = localStorage.getItem('dataKey');
+  //   const savedSavedAmount = localStorage.getItem('save');
+  //   if (savedGoalAmount) {
       
-      setGoalAmount(JSON.parse(savedGoalAmount));
-    }
-    if(savedSavedAmount)
-    {
-      setSavedAmount(JSON.parse(savedSavedAmount));
-    }
+  //     setGoalAmount(JSON.parse(savedGoalAmount));
+  //   }
+  //   if(savedSavedAmount)
+  //   {
+  //     setSavedAmount(JSON.parse(savedSavedAmount));
+  //   }
 
 
-  },[]);
+  // },[]);
 
   useEffect(()=>{
     console.log("hahawtf")
@@ -41,11 +41,6 @@ export default function Test()
   },[goalAmount, saveAmount]) 
 
 
-
-  // const handleGoal = () => 
-  // {
-  //   setGoalAmount(20);
-  // }
 
   function calculatePercentage() 
   {

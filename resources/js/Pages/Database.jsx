@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import "/home/julia/pam/resources/css/led.css";
 export default function Database({ user }) {
-    console.log("wtf huh");
+    console.log("Code started");
     // console.log(user[0].id);
     //dumbass react
     console.log(user[0].led);
@@ -46,10 +46,6 @@ export default function Database({ user }) {
             });
     };
 
-    function wtf() {
-        console.log("wtf");
-
-    }
 
     const getUserData = async () => {
         axios
