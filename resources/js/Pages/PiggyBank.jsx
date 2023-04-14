@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect} from 'react';
 import "/home/julia/pam/resources/css/piggbank.css";
 
-export default function Test()
+export default function PiggyBank({ user })
 {
 
   const [goalAmount, setGoalAmount] = useState(0)

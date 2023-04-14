@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PiggyController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -18,9 +19,15 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Test');
-});
+// Route::get('/piggyBank', function () {
+//     return Inertia::render('PiggyBank');
+// });
+
+
+Route::get('/piggyBank',[PiggyController::class,'index']); 
+Route::post('/piggyBankEdit',[PiggyController::class,'edit']); 
+Route::get('/piggyBankData',[PiggyController::class,'getBankData']); 
+
 
 Route::get('/database',[UserController::class,'index']);
 Route::post('/databasefuck',[UserController::class,'toggleLedPhp']);
