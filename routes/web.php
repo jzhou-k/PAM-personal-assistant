@@ -19,9 +19,10 @@ use Inertia\Inertia;
 |
 */
 
-// Route::get('/piggyBank', function () {
-//     return Inertia::render('PiggyBank');
-// });
+Route::get('/Reminder', function () {
+    return Inertia::render('ReminderApp');
+});
+
 
 
 Route::get('/piggyBank',[PiggyController::class,'index']); 

@@ -1,0 +1,23 @@
+body 
+{
+
+    font: 100% Helvetica, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ECE6C2;
+    color: #D2A24C;
+}
+
+h1
+{
+    font-size: 10rem;
+}
+
+button[type=button]{
+    background-color: #bebdba;
+    padding: 5px;
+    margin: 5px;
+}
+
+button[type=submit] {
+background-color: #c5c5c5;
+}/*# sourceMappingURL=piggyStyle.css.map */
